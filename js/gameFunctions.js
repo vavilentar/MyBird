@@ -76,22 +76,16 @@ function createAnswersList(array) {
 	answersListTab.innerHTML = `
 	<ul>
 	<li id="0" class="answers-item">
-		<span class="answer-btn"></span>
 		${array[0][0].name}</li>
 	<li id="1" class="answers-item">
-		<span class="answer-btn"></span>
 		${array[0][1].name}</li>
 	<li id="2" class="answers-item">
-		<span class="answer-btn"></span>
 		${array[0][2].name}</li>
 	<li id="3" class="answers-item">
-		<span class="answer-btn"></span>
 		${array[0][3].name}</li>
 	<li id="4" class="answers-item">
-		<span class="answer-btn"></span>
 		${array[0][4].name}</li>
 	<li id="5" class="answers-item">
-		<span class="answer-btn"></span>
 		${array[0][5].name}</li>
 </ul>
 	`
@@ -199,7 +193,13 @@ function showResult(num) {
 	resultModal.classList.remove('hide-page')
 	resultModal.innerHTML = `
 	Вы прошли викторину!<br><br>Ваше поличество баллов: ${num} из 30.
+	<br><br>
+	<button class="repeat-game-btn">Начать заново</button>
 	`
+
+	document.querySelector('.repeat-game-btn').addEventListener('click', (e) => {
+		resetGame()		
+	})
 }
 
 getCategory(0)
