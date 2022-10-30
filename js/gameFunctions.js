@@ -20,6 +20,7 @@ const categoriesItems = document.querySelectorAll('.cat-list-item');
 const birdInfoCard = document.querySelector('.bird-info-card');
 const questionTab = document.querySelector('.question-tab');
 const scoresItem = document.querySelector('.scores');
+const resultModal = document.querySelector('.result-modal');
 
 function resetGame() {
 	selectedBird = 0;
@@ -29,6 +30,7 @@ function resetGame() {
 	scoreCounter = 5;
 	scores = 0;
 	birdInfoCard.innerHTML = ``
+	resultModal.classList.add('hide-page')
 	showScores(scores)
 	changeCategory(categoriesCounter)
 	getCategory(categoriesCounter)
@@ -144,6 +146,9 @@ function checkAnswer(item,bool) {
 		scores += scoreCounter;
 		showScores(scores)
 		scoreCounter = 5;
+		if(categoriesCounter == 5) {
+			showResult(scores)
+		}
 	} else {
 		item.style = "background-color: red"
 		wrondSound.currentTime = 0;
@@ -187,6 +192,13 @@ function showAnswer() {
 function showScores(num) {
 	scoresItem.innerHTML = `
 	Количество очков: ${num}
+	`
+}
+
+function showResult(num) {
+	resultModal.classList.remove('hide-page')
+	resultModal.innerHTML = `
+	Вы прошли викторину! Ваше поличество баллов: ${num} из 30.
 	`
 }
 

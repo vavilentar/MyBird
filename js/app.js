@@ -9,6 +9,7 @@ const mainWindow = document.querySelector('.content-section');
 startGameBtns.forEach((item) => {
 	item.addEventListener('click', (e) => {
 		e.preventDefault;
+		resultModal.classList.add('hide-page')
 		newGameSound.currentTime = 0;
 		newGameSound.play()
 		promoSection.classList.add('hide-page');
