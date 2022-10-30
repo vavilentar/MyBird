@@ -198,7 +198,7 @@ function showScores(num) {
 function showResult(num) {
 	resultModal.classList.remove('hide-page')
 	resultModal.innerHTML = `
-	Вы прошли викторину! Ваше поличество баллов: ${num} из 30.
+	Вы прошли викторину!<br><br>Ваше поличество баллов: ${num} из 30.
 	`
 }
 
