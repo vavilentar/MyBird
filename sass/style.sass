@@ -1,0 +1,292 @@
+@keyframes fadeInText 
+	from
+		opacity: 0
+	to
+		opacity: 1
+
+$primary-color: #001a33
+$secondary-color: #6094c5
+$light-sec-color: #71b2ee
+
+* 
+	padding: 0
+	margin: 0 auto
+	box-sizing: border-box
+	
+a
+	text-decoration: none
+	color: black
+li
+	list-style: none
+body
+	font-family: Roboto
+	max-width: 1140px
+	background: $secondary-color
+.content-section 
+	height: 80vh
+	overflow: hidden
+.promo
+	height: 100%
+	display: flex
+	position: relative
+	flex-direction: column
+	justify-content: center
+	.start-game-btn
+		font-family: Roboto
+		font-size: 18px
+		margin-top: 10px
+		padding: 0.5rem
+		cursor: pointer
+		filter: drop-shadow(2px 2px 3px $primary-color)
+		animation: fadeInText 2s ease backwards
+		background-color: white
+		border: 0.5px solid $primary-color
+		font-weight: 700
+		border-radius: 5px
+	img
+		position: absolute
+		left: 50%
+		transform: translateX(-50%)
+		top: 0
+		z-index: -1
+		opacity: .3
+	h1
+		font-family: Lora
+		color: #001a33
+		font-size: 86px
+		user-select: none
+		filter: drop-shadow(2px 4px 6px $primary-color)
+		animation: fadeInText 2s ease backwards
+		span
+			color: #ffffff
+	h3
+		font-family: Lora
+		animation: fadeInText 2s ease backwards
+		color: white
+		font-size: 24px
+		user-select: none
+header
+	// animation: fadeInText 1s ease backwards
+	animation-delay: 2s
+	display: grid
+	grid-template-columns: 0.3fr 1fr
+	height: 60px
+	.logotype
+		display: flex
+		align-items: center
+		h2
+			font-family: Lora
+			color: $primary-color
+			font-weight: 700
+			user-select: none
+		span
+			color: #ffffff
+		img
+			height: 50px
+	.header-menu
+		ul
+			height: 60px
+			width: fit-content
+			display: flex
+			align-items: center
+			justify-content: space-evenly
+			.nav-item
+				cursor: pointer
+				padding: 0.5rem
+				margin: 0 0
+				transition: filter .3s ease
+				&:hover
+					filter: drop-shadow(1px 1px 2px $primary-color)
+				a
+					color: #ffffff
+					font-size: 1em
+			.active-item
+				position: relative
+				&::after
+					content: ''
+					position: absolute
+					height: 1px
+					width: 100%
+					background-color: $primary-color
+					bottom: 0
+					left: 0
+footer
+	// animation: fadeInText 1s ease backwards
+	animation-delay: 2s
+	border-top: 2px solid $primary-color
+	width: 100%
+	height: 100px
+	display: grid
+	align-items: center
+	grid-template-columns: repeat(2, 1fr)
+	.author-info
+		display: flex
+		flex-direction: column
+		align-items: center
+		p
+			font-size: 18px
+			font-weight: 700
+		img
+			height: 50px
+			transition: filter .3s ease
+			&:hover
+				filter: drop-shadow(0px 0px 4px white)
+	.course-info
+		img
+			height: 50px
+			transition: filter .3s ease
+			&:hover
+				filter: drop-shadow(0px 0px 2px white)
+.hide-page
+	display: none
+.game-page
+	padding: 50px 0
+.categories-list
+	display: flex
+	justify-content: center
+	li
+		font-size: 0.9em
+		padding: 0.5rem 1rem
+		margin: 0 0
+		background-color: $primary-color
+		color: white
+		letter-spacing: 1px
+		user-select: none
+		display: flex
+		align-items: center
+		&:nth-child(1)
+			border-radius: 5px 0 0 5px
+		&:nth-child(6)
+			border-radius: 0 5px 5px 0
+	.current-item
+		background-color: $light-sec-color
+.question-tab 
+	border-radius: 5px
+	display: flex
+	padding: 1rem
+	margin: 1em 0
+	background-color: $light-sec-color
+	img
+		width: 200px
+		height: 155px
+		border-radius: 10px
+		margin: 0
+	.question-descr
+		padding: 1rem
+		display: flex
+		flex-direction: column
+		margin: 0 0
+		.question-sound-controls
+			audio
+				width: 890px
+		p
+			margin: 0 0 15px 0
+			font-size: 1.5em
+			font-weight: 500
+.selectors
+	display: grid
+	grid-template-columns: repeat(2, 1fr) 
+	column-gap: 15px
+	margin-bottom: 1em
+
+	.answers-tab
+		padding: 1rem
+		width: 100%
+		border-radius: 5px
+		background-color: $light-sec-color
+		.answers-item
+			cursor: pointer
+			display: flex
+			align-items: center
+			padding: .85rem 1.25rem
+			transition: filter .2s ease
+			border-radius: none
+			border: 1px solid rgba(0, 0, 0, 0.2)
+			font-weight: 500
+			background-color: $light-sec-color
+			&:hover
+				filter: sepia()
+			&:nth-child(1)
+				border-radius: 5px 5px 0 0
+			&:nth-child(6)
+				border-radius: 0 0 5px 5px
+			span
+				margin: 0 .5em 0 0
+				height: 5px
+				width: 5px
+				background: black
+				border-radius: 100%
+	.bird-info-card
+		padding: 1rem
+		width: 100%
+		border-radius: 5px
+		background-color: $light-sec-color
+		.bird
+			display: grid
+			grid-template-columns: 0.7fr 1fr
+			img
+				width: 200px
+				height: 155px
+				border-radius: 10px
+				margin: 0
+			.bird-info
+				.bird-name
+					font-size: 1.5em
+					font-weight: 500
+				.bird-name-eng
+					margin: 15px 0
+				width: 100%
+		.bird-descr
+			margin-top: 1em
+.next-round-btn
+	width: 100%
+	cursor: pointer
+	height: 2em
+	border-radius: 5px
+	border: none
+	font-family: Roboto
+	font-size: 1em
+	background-color: $primary-color
+	color: white
+	transition: filter .3s ease
+	&:hover
+		filter: hue-rotate(90deg)
+
+.disabled-btn
+	background: grey
+	cursor: not-allowed
+.scores
+	font-size: 0.9em
+	padding: 0.5rem 1rem
+	background-color: $primary-color
+	color: white
+	letter-spacing: 1px
+	user-select: none
+	display: flex
+	align-items: center
+	border-radius: 5px
+.bird-lib-card
+	background-color: $light-sec-color
+	border-radius: 5px
+	margin: 10px 0
+	display: flex
+	padding: 1em
+	.bird
+		margin: 0 0
+	img
+		width: 100%
+		border-radius: 5px
+	.bird-info
+		display: flex
+		flex-direction: column
+		align-items: center
+		margin: 0 0
+		padding: 0 0 0 1em
+		.bird-name
+			font-size: 1.2em
+		.bird-name-eng
+			margin: 10px 0
+		audio
+			height: 25px
+			width: 50em
+			margin-bottom: 10px
