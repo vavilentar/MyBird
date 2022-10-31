@@ -3,6 +3,7 @@ let categoriesCounter = 0;
 let currentCategory = [];
 let scoreCounter = 5;
 let scores = 0;
+let topScoresDB = [];
 const correctSound = new Audio('./sounds/correct.wav')
 const wrondSound = new Audio('./sounds/wrong.wav')
 const answersListTab = document.querySelector('.answers-tab');
@@ -194,7 +195,7 @@ function showScores(num) {
 function showResult(num) {
 	resultModal.classList.remove('hide-page')
 	resultModal.innerHTML = `
-	Вы прошли викторину!<br><br>Ваше поличество баллов: ${num} из 30.
+	Вы прошли викторину!<br><br>Ваше количество баллов: ${num} из 30.
 	<br><br>
 	<button class="repeat-game-btn">Начать заново</button>
 	`
@@ -205,27 +206,38 @@ function showResult(num) {
 }
 
 function saveResult(num,name) {
-	localStorage.setItem('result', num)
-	localStorage.setItem('player', name)
+	let playerObj = {
+		name: name ? name : 'Аноним',
+		score: num,
+	}
+	topScoresDB.push(playerObj)
+	localStorage.setItem('resultsDB', JSON.stringify(topScoresDB))
 }
 
 function refreshResultList() {
 	const resultBlock = document.querySelector('.results-block');
-	const resultItem = document.createElement('div');
-	resultItem.className = 'result';
-	if (localStorage.getItem('result') != null) {
+	if (localStorage.getItem('resultsDB') != null) {
+		let topScores = JSON.parse(localStorage.getItem('resultsDB'))
 		resultBlock.innerHTML = ``;
-		resultItem.innerHTML = `
-		<p>${localStorage.getItem('player')}</p>
-		<p>${localStorage.getItem('result')}</p>
-		`
-		resultBlock.appendChild(resultItem)
+		for (let i = 0; i < topScores.length; i++) {
+			const resultItem = document.createElement('div');
+			resultItem.className = 'result';
+			resultItem.innerHTML = `
+			<p>${i+1}</p>
+			<p>Имя: <span>${topScores[i].name}</span></p>
+			<p>Количество очков: <span>${topScores[i].score}</span></p>
+			`
+			resultBlock.appendChild(resultItem)
+		}
 	} else {
+		const resultItem = document.createElement('div');
+		resultItem.className = 'result';
 		resultItem.innerHTML = `
 		<p>Список результатов пуст</p>
 		`
 		resultBlock.appendChild(resultItem)
 	}
+
 
 }
 

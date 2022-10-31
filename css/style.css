@@ -328,11 +328,17 @@ footer {
 
 .result {
   display: flex;
-  padding: 1em; }
+  padding: 0.7em;
+  border-bottom: 0.5px solid black; }
+  .result p {
+    margin: 0.2em 0.5em; }
+    .result p span {
+      font-weight: 700; }
 
 .results-block {
-  margin: 15px 0;
+  margin: 15px auto;
   background-color: white;
-  border-radius: 5px; }
+  border-radius: 5px;
+  width: 30em; }
 
 /*# sourceMappingURL=style.css.map */
