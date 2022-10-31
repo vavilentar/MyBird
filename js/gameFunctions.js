@@ -45,6 +45,7 @@ function resetGame() {
 
 nextQuestionBtn.addEventListener('click', (e) => {
 	e.preventDefault()
+	scoreCounter = 5;
 	categoriesCounter++;
 	changeCategory(categoriesCounter)
 	getCategory(categoriesCounter)
@@ -54,9 +55,6 @@ nextQuestionBtn.addEventListener('click', (e) => {
 	showQuestion()
 	nextQuestionBtn.setAttribute('disabled', 'true')
 	nextQuestionBtn.classList.add('disabled-btn')
-	// if (categoriesCounter == 5) {
-	// 	nextQuestionBtn.setAttribute('disabled', 'true')
-	// }
 })
 
 function changeCategory(num) {
@@ -132,7 +130,7 @@ function getRandomBird() {
 
 function checkAnswer(item, bool) {
 	if (bool) {
-		item.style = "background-color: green"
+		item.style = "background-color: #42AE14"
 		correctSound.currentTime = 0;
 		correctSound.play()
 		showAnswer()
@@ -140,14 +138,13 @@ function checkAnswer(item, bool) {
 		nextQuestionBtn.classList.remove('disabled-btn')
 		scores += scoreCounter;
 		showScores(scores)
-		scoreCounter = 5;
 		if (categoriesCounter == 5) {
 			saveResult(scores, playerName)
 			showResult(scores)
 			refreshResultList()
 		}
 	} else {
-		item.style = "background-color: red"
+		item.style = "background-color: #FF4040"
 		wrondSound.currentTime = 0;
 		wrondSound.play()
 		if (scoreCounter != 1) {

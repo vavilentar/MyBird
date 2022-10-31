@@ -32,7 +32,7 @@ body {
   justify-content: center; }
   .promo .player-name-label {
     font-size: 1.2em;
-    filter: drop-shadow(2px 2px 3px #001a33);
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
     animation: fadeInText 2s ease backwards;
     padding: 0.5em;
     color: white; }
@@ -42,10 +42,10 @@ body {
     margin-top: 10px;
     padding: 0.5rem;
     cursor: pointer;
-    filter: drop-shadow(2px 2px 3px #001a33);
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
     animation: fadeInText 2s ease backwards;
     background-color: white;
-    border: 0.5px solid #001a33;
+    border: 0.5px solid #71b2ee;
     font-weight: 700;
     border-radius: 5px; }
   .promo img {
@@ -60,16 +60,17 @@ body {
     color: #001a33;
     font-size: 86px;
     user-select: none;
-    filter: drop-shadow(2px 4px 6px #001a33);
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
     animation: fadeInText 2s ease backwards; }
     .promo h1 span {
-      color: #ffffff; }
+      color: #8FF53A; }
   .promo h3 {
     font-family: Lora;
     animation: fadeInText 2s ease backwards;
     color: white;
     font-size: 24px;
-    user-select: none; }
+    user-select: none;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5)); }
 
 header {
   animation-delay: 2s;
@@ -85,7 +86,7 @@ header {
       font-weight: 700;
       user-select: none; }
     header .logotype span {
-      color: #ffffff; }
+      color: #8FF53A; }
     header .logotype img {
       height: 50px; }
   header .header-menu ul {
@@ -97,10 +98,7 @@ header {
     header .header-menu ul .nav-item {
       cursor: pointer;
       padding: 0.5rem;
-      margin: 0 0;
-      transition: filter 0.3s ease; }
-      header .header-menu ul .nav-item:hover {
-        filter: drop-shadow(1px 1px 2px #001a33); }
+      margin: 0 0; }
       header .header-menu ul .nav-item a {
         color: #ffffff;
         font-size: 1em; }
@@ -141,10 +139,8 @@ footer {
     footer .course-info img:hover {
       filter: drop-shadow(0px 0px 2px white); }
 
-.hide-page {
-  display: none; }
-
 .game-page {
+  text-align: center;
   padding: 50px 0;
   position: relative; }
   .game-page .result-modal {
@@ -162,7 +158,8 @@ footer {
 
 .categories-list {
   display: flex;
-  justify-content: center; }
+  justify-content: center;
+  width: calc(100% - 15px); }
   .categories-list li {
     font-size: 0.9em;
     padding: 0.5rem 1rem;
@@ -184,20 +181,20 @@ footer {
   border-radius: 5px;
   display: flex;
   padding: 1rem;
-  margin: 1em 0;
-  background-color: #71b2ee; }
+  margin: 1em auto;
+  background-color: #71b2ee;
+  width: calc(100% - 15px); }
   .question-tab img {
     width: 200px;
     height: 155px;
     border-radius: 10px;
     margin: 0; }
   .question-tab .question-descr {
+    text-align: left;
     padding: 1rem;
     display: flex;
     flex-direction: column;
     margin: 0 0; }
-    .question-tab .question-descr .question-sound-controls audio {
-      width: 890px; }
     .question-tab .question-descr p {
       margin: 0 0 15px 0;
       font-size: 1.5em;
@@ -207,7 +204,8 @@ footer {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   column-gap: 15px;
-  margin-bottom: 1em; }
+  margin: 0 auto;
+  width: calc(100% - 15px); }
   .selectors .answers-tab {
     padding: 1rem;
     width: 100%;
@@ -247,7 +245,7 @@ footer {
         width: 200px;
         height: 155px;
         border-radius: 10px;
-        margin: 0; }
+        margin: 1em; }
       .selectors .bird-info-card .bird .bird-info {
         width: 100%; }
         .selectors .bird-info-card .bird .bird-info .bird-name {
@@ -259,7 +257,8 @@ footer {
       margin-top: 1em; }
 
 .next-round-btn {
-  width: 100%;
+  width: calc(100% - 15px);
+  margin: 1em auto;
   cursor: pointer;
   height: 2em;
   border-radius: 5px;
@@ -274,7 +273,8 @@ footer {
 
 .disabled-btn {
   background: grey;
-  cursor: not-allowed; }
+  cursor: not-allowed;
+  margin: 1em auto; }
 
 .scores {
   font-size: 0.9em;
@@ -285,14 +285,22 @@ footer {
   user-select: none;
   display: flex;
   align-items: center;
-  border-radius: 5px; }
+  border-radius: 5px;
+  width: fit-content;
+  margin-top: 1em; }
+
+.birds-library {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
 
 .bird-lib-card {
   background-color: #71b2ee;
   border-radius: 5px;
   margin: 10px 0;
   display: flex;
-  padding: 1em; }
+  padding: 1em;
+  width: calc(100% - 15px); }
   .bird-lib-card .bird {
     margin: 0 0; }
   .bird-lib-card img {
@@ -301,16 +309,18 @@ footer {
   .bird-lib-card .bird-info {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     margin: 0 0;
     padding: 0 0 0 1em; }
     .bird-lib-card .bird-info .bird-name {
-      font-size: 1.2em; }
+      font-size: 1.2em;
+      margin: 0.5em 0; }
     .bird-lib-card .bird-info .bird-name-eng {
       margin: 10px 0; }
+    .bird-lib-card .bird-info .bird-sound {
+      margin: 0 0; }
     .bird-lib-card .bird-info audio {
       height: 25px;
-      width: 50em;
       margin-bottom: 10px; }
 
 .repeat-game-btn {
@@ -333,12 +343,57 @@ footer {
   .result p {
     margin: 0.2em 0.5em; }
     .result p span {
+      color: #8FF53A;
       font-weight: 700; }
 
 .results-block {
   margin: 15px auto;
   background-color: white;
   border-radius: 5px;
-  width: 30em; }
+  width: 90%; }
+
+.result-page {
+  width: calc(100% - 15px); }
+
+@media (max-width: 769px) {
+  .bird-lib-card {
+    flex-direction: column;
+    width: 50%; }
+    .bird-lib-card .bird-info .bird-name-eng {
+      margin: 0 0 0.5em 0; } }
+@media (max-width: 426px) {
+  .bird-lib-card {
+    width: calc(100% - 15px); }
+
+  header {
+    height: fit-content;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr); }
+    header .header-menu {
+      width: calc(100% - 15px); }
+
+  .categories-list {
+    flex-direction: column; }
+    .categories-list li {
+      font-size: 0.7em;
+      padding: 0.3rem 0.5rem; }
+      .categories-list li:nth-child(1) {
+        border-radius: 5px 5px 0 0; }
+      .categories-list li:nth-child(6) {
+        border-radius: 0 0 5px 5px; }
+
+  .selectors {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 0.8fr); }
+    .selectors .answers-tab {
+      height: fit-content; }
+    .selectors .bird-info-card .bird {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(2, 1fr); }
+
+  .question-tab {
+    flex-direction: column; } }
+.hide-page {
+  display: none; }
 
 /*# sourceMappingURL=style.css.map */
