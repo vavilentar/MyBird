@@ -21,7 +21,7 @@ body {
   background: #6094c5; }
 
 .content-section {
-  height: 80vh;
+  height: 100vh;
   overflow: hidden; }
 
 .promo {
@@ -30,7 +30,13 @@ body {
   position: relative;
   flex-direction: column;
   justify-content: center; }
-  .promo .start-game-btn {
+  .promo .player-name-label {
+    font-size: 1.2em;
+    filter: drop-shadow(2px 2px 3px #001a33);
+    animation: fadeInText 2s ease backwards;
+    padding: 0.5em;
+    color: white; }
+  .promo .start-game-btn, .promo .player-name {
     font-family: Roboto;
     font-size: 18px;
     margin-top: 10px;
@@ -318,6 +324,15 @@ footer {
   background-color: white;
   border: 0.5px solid #001a33;
   font-weight: 700;
+  border-radius: 5px; }
+
+.result {
+  display: flex;
+  padding: 1em; }
+
+.results-block {
+  margin: 15px 0;
+  background-color: white;
   border-radius: 5px; }
 
 /*# sourceMappingURL=style.css.map */

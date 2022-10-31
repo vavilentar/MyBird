@@ -23,7 +23,7 @@ body
 	max-width: 1140px
 	background: $secondary-color
 .content-section 
-	height: 80vh
+	height: 100vh
 	overflow: hidden
 .promo
 	height: 100%
@@ -31,7 +31,13 @@ body
 	position: relative
 	flex-direction: column
 	justify-content: center
-	.start-game-btn
+	.player-name-label
+		font-size: 1.2em
+		filter: drop-shadow(2px 2px 3px $primary-color)
+		animation: fadeInText 2s ease backwards
+		padding: 0.5em 
+		color: white
+	.start-game-btn,.player-name
 		font-family: Roboto
 		font-size: 18px
 		margin-top: 10px
@@ -315,3 +321,10 @@ footer
 		border: 0.5px solid $primary-color
 		font-weight: 700
 		border-radius: 5px
+.result 
+	display: flex
+	padding: 1em
+.results-block
+	margin: 15px 0
+	background-color: white
+	border-radius: 5px

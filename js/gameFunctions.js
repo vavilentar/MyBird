@@ -8,7 +8,7 @@ const wrondSound = new Audio('./sounds/wrong.wav')
 const answersListTab = document.querySelector('.answers-tab');
 const mainPageBtn = document.querySelector('.main-page-btn').addEventListener('click', (e) => {
 	e.preventDefault();
-	mainWindow.style = 'height: 80vh'
+	mainWindow.style = 'height: 100vh'
 	gameSection.classList.add('hide-page');
 	librarySection.classList.add('hide-page')
 	promoSection.classList.remove('hide-page');
@@ -101,7 +101,7 @@ function updateAnswersEvents() {
 
 	answersItems.forEach((item) => {
 		item.addEventListener('click', (e) => {
-			getBirdInformation(birdsData,e.target.id)
+			getBirdInformation(birdsData, e.target.id)
 			birdInfoCard.innerHTML = `
 			<div class="bird">
 				<img src="${selectedBird.image}" alt="" class="bird-img">
@@ -119,7 +119,7 @@ function updateAnswersEvents() {
 			${selectedBird.description}
 			</div>
 			`
-			checkAnswer(e.target, (parseInt(e.target.id)+1 == currectAnswer.id))
+			checkAnswer(e.target, (parseInt(e.target.id) + 1 == currectAnswer.id))
 		})
 	})
 }
@@ -129,7 +129,7 @@ function getRandomBird() {
 	return birdsData[categoriesCounter][rnd];
 }
 
-function checkAnswer(item,bool) {
+function checkAnswer(item, bool) {
 	if (bool) {
 		item.style = "background-color: green"
 		correctSound.currentTime = 0;
@@ -140,14 +140,16 @@ function checkAnswer(item,bool) {
 		scores += scoreCounter;
 		showScores(scores)
 		scoreCounter = 5;
-		if(categoriesCounter == 5) {
+		if (categoriesCounter == 5) {
+			saveResult(scores, playerName)
 			showResult(scores)
+			refreshResultList()
 		}
 	} else {
 		item.style = "background-color: red"
 		wrondSound.currentTime = 0;
 		wrondSound.play()
-		if(scoreCounter != 1) {
+		if (scoreCounter != 1) {
 			scoreCounter--;
 		} else {
 			scoreCounter = 1;
@@ -198,10 +200,36 @@ function showResult(num) {
 	`
 
 	document.querySelector('.repeat-game-btn').addEventListener('click', (e) => {
-		resetGame()		
+		resetGame()
 	})
 }
 
+function saveResult(num,name) {
+	localStorage.setItem('result', num)
+	localStorage.setItem('player', name)
+}
+
+function refreshResultList() {
+	const resultBlock = document.querySelector('.results-block');
+	const resultItem = document.createElement('div');
+	resultItem.className = 'result';
+	if (localStorage.getItem('result') != null) {
+		resultBlock.innerHTML = ``;
+		resultItem.innerHTML = `
+		<p>${localStorage.getItem('player')}</p>
+		<p>${localStorage.getItem('result')}</p>
+		`
+		resultBlock.appendChild(resultItem)
+	} else {
+		resultItem.innerHTML = `
+		<p>Список результатов пуст</p>
+		`
+		resultBlock.appendChild(resultItem)
+	}
+
+}
+
+refreshResultList()
 getCategory(0)
 createAnswersList(currentCategory)
 updateAnswersEvents()
