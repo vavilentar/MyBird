@@ -82,6 +82,17 @@ body
 		font-size: 24px
 		user-select: none
 		@include textShadow
+.change-lang 
+	font-family: Roboto
+	font-size: 18px
+	padding: 0.5rem
+	cursor: pointer
+	@include textShadow
+	animation: fadeInText 2s ease backwards
+	background-color: white
+	border: 0.5px solid $light-sec-color
+	font-weight: 700
+	border-radius: 5px
 
 header
 	// animation: fadeInText 1s ease backwards
@@ -358,7 +369,21 @@ footer
 	border-radius: 5px
 	width: 90%
 .result-page
+	display: flex
+	flex-direction: column
 	width: calc(100% - 15px)
+	.start-game-btn,
+		font-family: Roboto
+		font-size: 18px
+		margin-top: 10px
+		padding: 0.5rem
+		cursor: pointer
+		@include textShadow
+		animation: fadeInText 2s ease backwards
+		background-color: white
+		border: 0.5px solid $light-sec-color
+		font-weight: 700
+		border-radius: 5px
 @media (max-width: 769px)
 	.bird-lib-card
 		flex-direction: column
@@ -366,7 +391,9 @@ footer
 		.bird-info
 			.bird-name-eng
 				margin: 0 0 0.5em 0
-@media (max-width: 426px)
+@media (max-width: 550px)
+	audio
+		width: 250px
 	.bird-lib-card
 		@include calcWidth
 	header
@@ -386,7 +413,7 @@ footer
 				border-radius: 0 0 5px 5px
 	.selectors
 		grid-template-columns: 1fr
-		grid-template-rows: repeat(2, 0.8fr) 
+		grid-template-rows: 0.8fr
 		.answers-tab
 			height: fit-content
 		.bird-info-card 
@@ -398,3 +425,14 @@ footer
 	
 .hide-page
 	display: none
+
+@media (max-width: 401px)
+	header .header-menu ul .nav-item
+		padding: 5px
+	header .header-menu ul .nav-item a
+		font-size: 0.8em
+	.promo
+		height: 70%
+		text-align: center
+	.promo h1
+		font-size: 68px

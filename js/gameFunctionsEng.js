@@ -67,7 +67,7 @@ function changeCategory(num) {
 
 function getCategory(num) {
 	currentCategory = [];
-	currentCategory.push(birdsData[num])
+	currentCategory.push(birdsDataEn[num])
 
 	return currentCategory;
 }
@@ -101,7 +101,7 @@ function updateAnswersEvents() {
 
 	answersItems.forEach((item) => {
 		item.addEventListener('click', (e) => {
-			getBirdInformation(birdsData, e.target.id)
+			getBirdInformation(birdsDataEn, e.target.id)
 			birdInfoCard.innerHTML = `
 			<div class="bird">
 				<img src="${selectedBird.image}" alt="" class="bird-img">
@@ -126,7 +126,7 @@ function updateAnswersEvents() {
 
 function getRandomBird() {
 	let rnd = Math.floor(Math.random() * 6)
-	return birdsData[categoriesCounter][rnd];
+	return birdsDataEn[categoriesCounter][rnd];
 }
 
 function soundOff() {
@@ -174,7 +174,7 @@ function showQuestion() {
 	questionTab.innerHTML = `
 	<img src="./img/hidden-bird.jpg" alt="" class="question-tab-image">
 	<div class="question-descr">
-		<p>Что это за птица?</p>
+		<p>What kind of bird is this?</p>
 		<div class="question-sound-controls">
 		<audio controls> 
 			<source src="${currectAnswer.audio}"> 
@@ -188,7 +188,7 @@ function showAnswer() {
 	questionTab.innerHTML = `
 	<img src="${currectAnswer.image}" alt="" class="question-tab-image">
 	<div class="question-descr">
-		<p>Правильно! Это ${currectAnswer.name.toLowerCase()}</p>
+		<p>Correct! It's ${currectAnswer.name.toLowerCase()}</p>
 		<div class="question-sound-controls">
 		<audio controls> 
 			<source src="${currectAnswer.audio}"> 
@@ -200,16 +200,16 @@ function showAnswer() {
 
 function showScores(num) {
 	scoresItem.innerHTML = `
-	Количество очков: ${num}
+	Total scores: ${num}
 	`
 }
 
 function showResult(num) {
 	resultModal.classList.remove('hide-page')
 	resultModal.innerHTML = `
-	Вы прошли викторину!<br><br>Ваше количество баллов: ${num} из 30.
+	You complete quiz!<br><br>Your scores: ${num} из 30.
 	<br><br>
-	<button class="repeat-game-btn">Начать заново</button>
+	<button class="repeat-game-btn">Play again</button>
 	`
 
 	document.querySelector('.repeat-game-btn').addEventListener('click', (e) => {
@@ -219,7 +219,7 @@ function showResult(num) {
 
 function saveResult(num,name) {
 	let playerObj = {
-		name: name ? name : 'Аноним',
+		name: name ? name : 'Anonimous',
 		score: num,
 	}
 	topScoresDB.push(playerObj)
@@ -236,8 +236,8 @@ function refreshResultList() {
 			resultItem.className = 'result';
 			resultItem.innerHTML = `
 			<p>${i+1}</p>
-			<p>Имя: <span>${topScores[i].name}</span></p>
-			<p>Количество очков: <span>${topScores[i].score}</span></p>
+			<p>Name: <span>${topScores[i].name}</span></p>
+			<p>Scores: <span>${topScores[i].score}</span></p>
 			`
 			resultBlock.appendChild(resultItem)
 		}
@@ -245,7 +245,7 @@ function refreshResultList() {
 		const resultItem = document.createElement('div');
 		resultItem.className = 'result';
 		resultItem.innerHTML = `
-		<p>Список результатов пуст</p>
+		<p>Results list is empty</p>
 		`
 		resultBlock.appendChild(resultItem)
 	}

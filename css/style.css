@@ -72,6 +72,18 @@ body {
     user-select: none;
     filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5)); }
 
+.change-lang {
+  font-family: Roboto;
+  font-size: 18px;
+  padding: 0.5rem;
+  cursor: pointer;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+  animation: fadeInText 2s ease backwards;
+  background-color: white;
+  border: 0.5px solid #71b2ee;
+  font-weight: 700;
+  border-radius: 5px; }
+
 header {
   animation-delay: 2s;
   display: grid;
@@ -353,7 +365,21 @@ footer {
   width: 90%; }
 
 .result-page {
+  display: flex;
+  flex-direction: column;
   width: calc(100% - 15px); }
+  .result-page .start-game-btn {
+    font-family: Roboto;
+    font-size: 18px;
+    margin-top: 10px;
+    padding: 0.5rem;
+    cursor: pointer;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+    animation: fadeInText 2s ease backwards;
+    background-color: white;
+    border: 0.5px solid #71b2ee;
+    font-weight: 700;
+    border-radius: 5px; }
 
 @media (max-width: 769px) {
   .bird-lib-card {
@@ -361,7 +387,10 @@ footer {
     width: 50%; }
     .bird-lib-card .bird-info .bird-name-eng {
       margin: 0 0 0.5em 0; } }
-@media (max-width: 426px) {
+@media (max-width: 550px) {
+  audio {
+    width: 250px; }
+
   .bird-lib-card {
     width: calc(100% - 15px); }
 
@@ -384,7 +413,7 @@ footer {
 
   .selectors {
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(2, 0.8fr); }
+    grid-template-rows: 0.8fr; }
     .selectors .answers-tab {
       height: fit-content; }
     .selectors .bird-info-card .bird {
@@ -395,5 +424,19 @@ footer {
     flex-direction: column; } }
 .hide-page {
   display: none; }
+
+@media (max-width: 401px) {
+  header .header-menu ul .nav-item {
+    padding: 5px; }
+
+  header .header-menu ul .nav-item a {
+    font-size: 0.8em; }
+
+  .promo {
+    height: 70%;
+    text-align: center; }
+
+  .promo h1 {
+    font-size: 68px; } }
 
 /*# sourceMappingURL=style.css.map */
