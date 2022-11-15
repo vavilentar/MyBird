@@ -44,6 +44,9 @@ function resetGame() {
 }
 
 nextQuestionBtn.addEventListener('click', (e) => {
+	if(document.body.clientWidth < 550) {
+		window.scrollTo(0,0)
+	}
 	e.preventDefault()
 	scoreCounter = 5;
 	categoriesCounter++;
@@ -76,16 +79,22 @@ function createAnswersList(array) {
 	answersListTab.innerHTML = `
 	<ul>
 	<li id="0" class="answers-item">
+	<i class="fa-solid fa-circle"></i>
 		${array[0][0].name}</li>
 	<li id="1" class="answers-item">
+	<i class="fa-solid fa-circle"></i>
 		${array[0][1].name}</li>
 	<li id="2" class="answers-item">
+	<i class="fa-solid fa-circle"></i>
 		${array[0][2].name}</li>
 	<li id="3" class="answers-item">
+	<i class="fa-solid fa-circle"></i>
 		${array[0][3].name}</li>
 	<li id="4" class="answers-item">
+	<i class="fa-solid fa-circle"></i>
 		${array[0][4].name}</li>
 	<li id="5" class="answers-item">
+	<i class="fa-solid fa-circle"></i>
 		${array[0][5].name}</li>
 </ul>
 	`
@@ -140,8 +149,9 @@ function soundOn() {
 }
 
 function checkAnswer(item, bool) {
+	const dots = document.querySelectorAll('.fa-circle');
 	if (bool) {
-		item.style = "background-color: #42AE14"
+		dots[item.id].style = 'color: #42AE14'
 		correctSound.currentTime = 0;
 		correctSound.play()
 		showAnswer()
@@ -155,11 +165,12 @@ function checkAnswer(item, bool) {
 			// showResult(scores)
 			refreshResultList()
 			gameSection.classList.add('hide-page');
-			mainWindow.style = 'height: 100vh'
+			mainWindow.style = 'height: 100vh';
+			window.scrollTo(0, 0);
 			resultsSection.classList.remove('hide-page')
 		}
 	} else {
-		item.style = "background-color: #FF4040"
+		dots[item.id].style = 'color: #FF4040'
 		wrondSound.currentTime = 0;
 		wrondSound.play()
 		if (scoreCounter != 1) {
